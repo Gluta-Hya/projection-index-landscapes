@@ -71,7 +71,7 @@ def kurva(x, m, U):
 def lorenz_dari_fase2(path="fase2_hasil.csv", sistem="lorenz28"):
     if not os.path.exists(path):
         return None
-    with open(path, encoding="utf-8") as fh:
+    with open(path) as fh:
         rows = [r for r in csv.DictReader(fh) if r["sistem"] == sistem and r["sumber"] == "asli"]
     out = {}
     for m in M_LIST:
@@ -149,7 +149,7 @@ if __name__ == "__main__":
     for i, m in enumerate(M_LIST):
         extra = f"   Lorenz asli = {wb_lor[i]:.2f}" if lor else ""
         print(f"  m={m}: model = {wb_model[i]:.2f}{extra}")
-    with open("fase3_hasil.csv", "w", newline="", encoding="utf-8") as fh:
+    with open("fase3_hasil.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(baris[0].keys()))
         w.writeheader()
         w.writerows(baris)

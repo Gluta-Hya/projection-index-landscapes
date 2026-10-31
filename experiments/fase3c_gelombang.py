@@ -143,13 +143,13 @@ def kurva_dan_puncak(x, m, U):
 def lorenz_acuan(path="fase2_ringkasan.csv", sistem="lorenz28"):
     if not os.path.exists(path):
         return None
-    with open(path, encoding="utf-8") as fh:
+    with open(path) as fh:
         rows = [r for r in csv.DictReader(fh) if r["sistem"] == sistem]
     return [np.mean([float(r["Wbintang_per_P"]) for r in rows if int(r["m"]) == m]) for m in M_LIST]
 
 
 def simpan(nama, rows):
-    with open(nama, "w", newline="", encoding="utf-8") as fh:
+    with open(nama, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)

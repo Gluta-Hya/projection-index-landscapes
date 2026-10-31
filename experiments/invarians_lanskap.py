@@ -139,7 +139,7 @@ def jalankan(m_list=(3, 4, 5), tau_list=range(4, 33, 2), K=1500):
                 baris.append(f)
                 print(f"m={m} tau={tau:2d} {nama:9s} I3_bimodal={f['I3_fraksi_bimodal']:.2f} "
                       f"pulau(I2)={f['I2_pulau']}")
-    with open("hasil_invarians.csv", "w", newline="", encoding="utf-8") as fh:
+    with open("hasil_invarians.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(baris[0].keys()))
         w.writeheader()
         w.writerows(baris)

@@ -197,7 +197,7 @@ def gambar(baris, skala):
 
 
 def simpan(nama, baris):
-    with open(nama, "w", newline="", encoding="utf-8") as fh:
+    with open(nama, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(baris[0].keys()))
         w.writeheader()
         w.writerows(baris)
